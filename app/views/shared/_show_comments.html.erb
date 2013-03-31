@@ -1,0 +1,6 @@
+<% @comments.each do |comment| %>
+    <p>
+      <%= comment.text %>
+    </p>
+<% end %>
+<%= "No hay comentarios" unless @comments.nil? %>

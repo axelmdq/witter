@@ -1,0 +1,33 @@
+<script>
+    function toggle(div_name){
+        $(div_name).slideToggle();
+    }
+</script>
+<div class="large-9 columns push-3">
+<% @tweets.each do |tweet| %>
+    <div class="row">
+        <div class="small-3 large-2 columns "><%= image_tag tweet.user.picture.url(:small) %></div>
+        <div class="small-9 large-10 columns">
+            <strong><%= tweet.user.name %>:</strong> <%= tweet.text.html_safe %>
+            <ul class="inline-list">
+                <li><%= link_to "Comentar", new_tweet_comment_path(tweet) %></li>
+                <% if current_user.id == tweet.user.id %>
+                <li><%= link_to "Editar", edit_tweet_path(tweet) %></li>
+                <li><%= link_to "Eliminar", tweet, :method => :delete, :confirm => "Esta seguro?" %></li>
+                <% end %>
+                <li><em><%= tweet.created_at %></em></li>
+            </ul>
+            <h6><%= tweet.comments.count %> <a href="javascript:toggle(<%= "comments" + tweet.id.to_s %>)"><%= tweet.comments.count == 1 ? "Comentario" : "Comentarios" %></a></h6>
+            <div id="comments<%= tweet.id %>">
+            <% tweet.comments.each do |comment| %>
+                <div class="row">
+                    <div class="small-3 large-2 columns"><%= image_tag comment.user.picture.url(:thumb) %></div>
+                    <div class="small-9 large-10 columns"><%= comment.user.name %>: <%= comment.text.html_safe %></div>
+                </div>
+            <% end %>
+            </div>
+        </div>
+    </div>
+    <hr />
+<% end %>
+</div>

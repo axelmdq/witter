@@ -1,0 +1,27 @@
+<h1><%= @user.name + @user.surname %></h1>
+<div class="post">
+  <p>
+    <%= @user.username %>
+  </p>
+  <p>
+    <%= @user.email %>
+  </p>
+  <p>
+    <%= @user.about_me %>
+  </p>
+  <p>
+    <%= link_to "Editar", edit_user_path %>
+  </p>
+</div>
+<div class="post">
+  <h1>Comentarios</h1>
+  <%=  render "shared/show_comments" %>
+</div>
+<div class="post">
+  <h1>Tweets</h1>
+  <%=  render "shared/show_tweets" %>
+</div>
+<div class="post">
+  <h1>Amigos</h1>
+  <%=  render "shared/show_friends" %>
+</div>

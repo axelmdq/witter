@@ -1,0 +1,23 @@
+<div>
+  <% @tweets.each do |tweet| %>
+      <div class="post">
+        <h3><%= tweet.text.html_safe %></h3>
+        <em><%= tweet.user.name %> | Cantidad Comentarios: <%= tweet.comments.count %></em><br/>
+        <%= link_to "Comentar", new_tweet_comment_path(tweet) %>
+        <% if current_user.id == tweet.user.id %>
+            <%= link_to "Editar", edit_tweet_path(tweet) %>
+            <%= link_to "Eliminar", tweet, :method => :delete, :confirm => "Esta seguro?" %>
+        <% end %>
+        <div>
+          <br/>
+          <% tweet.comments.each do |comment| %>
+              &nbsp;&nbsp;&nbsp;<%= comment.text.html_safe + " - por " + comment.user.name  %>
+
+              <br/><br/>
+          <% end %>
+        </div>
+      </div>
+  <% end %>
+</div>
+
+<%= "No hay tweets" if @tweets.empty? %>

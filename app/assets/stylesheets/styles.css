@@ -1,0 +1,11 @@
+#nota-informativa {
+    padding:5px; /*Espaciado interno*/
+    width:180px; /*Ancho del contenedor*/
+    text-align:center; /*Alineación del texto*/
+    background-color:#FFEE88; /*Color de fondo*/
+    position:fixed; /*Permite que se mantenga estático*/
+    display:none; /*Oculta el contenedor*/
+    left:200px; /*Separación del borde izquierdo*/
+    bottom:80px; /*Separación inferior del borde*/
+    box-shadow:0 0 5px #555; /*Sombras CSS3*/
+}

@@ -1,0 +1,29 @@
+<%= form_for @user, :html => { :multipart => true } do |user| %>
+    <%= render "shared/error_messages", :object => @user %>
+    <p>
+      <%= user.label :name %><br/>
+      <%= user.text_field :name %>
+    </p>
+    <p>
+      <%= user.label :surname %><br/>
+      <%= user.text_field :surname %>
+    </p>
+    <p>
+      <%= user.label :email %><br/>
+      <%= user.text_field :email %>
+    </p>
+    <p>
+      <%= user.label :username %><br/>
+      <%= user.text_field :username %>
+    </p>
+    <p>
+      <%= user.label :about_me %><br/>
+      <%= user.text_field :about_me %>
+    </p>
+    <p>
+      <%= user.file_field :picture %>
+    </p>
+    <p>
+      <%= submit_tag "Guardar" %>
+    </p>
+<% end %>

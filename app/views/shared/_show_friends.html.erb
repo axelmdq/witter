@@ -1,0 +1,8 @@
+<% @user.friendships.each do |friendship| %>
+    <p>
+      <%= friendship.friend.name %> | <%= link_to "Eliminar", user_friendship_path(:id => friendship.friend_id,:user_id => friendship.user_id) , :method => :delete, :confirm => "Esta seguro?" %>
+    </p>
+<% end %>
+<% if @user.friendships.nil? %>
+    <%=  "Todavia no tienes amigos, haz click aqui para "%> <%= link_to "buscar amigos", users_path %>
+<% end %>

@@ -1,0 +1,14 @@
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#nota-informativa")
+                .show( "bounce", { times:3, distance:100, direction:'down' }, 2000 ) // Uso de .show, específicamente con bounce y algunos parámetros específicos de esta animación.
+                .delay(2000) //Tiempo de duración del contenedor en la página
+                .hide( "drop", { direction: "down" }, "slow" ); //Uso de .hide, con el efecto drop.
+    });
+</script>
+<% flash.each do |key, value| %>
+    <div id="nota-informativa" style="vertical-align: top;text-align: center">
+    <% (key == :error)? title = "Error!" : title = "Success!" %>
+      <strong><%= title %></strong>&nbsp;<%= value %>
+    </div>
+<% end %>

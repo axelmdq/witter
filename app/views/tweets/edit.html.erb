@@ -1,0 +1,10 @@
+<%= form_for @tweet do |tweet| %>
+    <%= render "shared/error_messages", :object => @tweet %>
+    <p>
+    <%= tweet.label :text, "Tweet" %><br/>
+    <%= tweet.text_field :text %>
+    </p>
+    <p>
+    <%= submit_tag "Guardar" %>
+    </p>
+<% end %>
